@@ -159,11 +159,6 @@ cat <<EOF >>  ~/.config/terminator/config
 [plugins]
 EOF
 
-echo 'Installing franz...' 
-wget https://github.com/meetfranz/franz/releases/download/v5.1.0/franz_5.1.0_amd64.deb -O franz.deb
-sudo dpkg -i franz.debchristian-kohler.path-intellisense
-sudo apt-get install -y -f 
-
 echo 'Installing docker...' 
 sudo apt-get remove docker docker-engine docker.io
 sudo apt install docker.io -y
@@ -178,10 +173,6 @@ echo 'Installing docker-compose...'
 sudo curl -L "https://github.com/docker/compose/releases/download/1.26.2/docker-compose-$(uname -s)-$(uname -m)" -o /usr/local/bin/docker-compose
 sudo chmod +x /usr/local/bin/docker-compose
 docker-compose --version
-
-echo 'Installing fzf...'
-git clone --depth 1 https://github.com/junegunn/fzf.git ~/.fzf
-~/.fzf/install --all
 
 echo 'Installing dbeaver...'
 wget -c https://github.com/dbeaver/dbeaver/releases/download/7.1.5/dbeaver-ce_7.1.5_amd64.deb
