@@ -37,47 +37,6 @@ echo "SSH public key copied to clipboard."
 echo 'Installing firacode...'
 sudo apt install fonts-firacode -y
 
-echo 'Installing zsh...'
-sudo apt install zsh -y
-sh -c "$(wget https://raw.github.com/robbyrussell/oh-my-zsh/master/tools/install.sh -O -)"
-chsh -s /bin/zsh
-echo "export PROFILE="$HOME/.zshrc"" >> ~/.zshrc
-source ~/.zshrc
-
-echo "Installing spaceship theme..."
-git clone https://github.com/denysdovhan/spaceship-prompt.git "$ZSH_CUSTOM/themes/spaceship-prompt"
-ln -s "$ZSH_CUSTOM/themes/spaceship-prompt/spaceship.zsh-theme" "$ZSH_CUSTOM/themes/spaceship.zsh-theme"
-sed -i 's/ZSH_THEME="robbyrussell"/ZSH_THEME="spaceship"/' ~/.zshrc
-source ~/.zshrc
-
-cat <<EOF >>  ~/.zshrc
-SPACESHIP_PROMPT_ORDER=(
-  user          # Username section
-  dir           # Current directory section
-  host          # Hostname section
-  git           # Git section (git_branch + git_status)
-  hg            # Mercurial section (hg_branch  + hg_status)
-  exec_time     # Execution time
-  line_sep      # Line break
-  vi_mode       # Vi-mode indicator
-  jobs          # Background jobs indicator
-  exit_code     # Exit code section
-  char          # Prompt character
-)
-SPACESHIP_USER_SHOW=always
-SPACESHIP_PROMPT_ADD_NEWLINE=false
-SPACESHIP_CHAR_SYMBOL="❯"
-SPACESHIP_CHAR_SUFFIX=" "
-EOF
-
-echo "Installing zinit..."
-sh -c "$(curl -fsSL https://raw.githubusercontent.com/zdharma/zinit/master/doc/install.sh)"
-
-echo "Adding extentions"
-echo "zinit light zdharma/fast-syntax-highlighting" >> ~/.zshrc
-echo "zinit light zsh-users/zsh-autosuggestions" >> ~/.zshrc
-echo "zinit light zsh-users/zsh-completions" >> ~/.zshrc
-
 echo 'Installing code...'
 curl https://packages.microsoft.com/keys/microsoft.asc | gpg --dearmor > microsoft.gpg
 sudo install -o root -g root -m 644 microsoft.gpg /etc/apt/trusted.gpg.d/
@@ -197,3 +156,9 @@ sudo apt install vlc -y
 
 echo 'Installing openjdk-8-jdk...'
 sudo apt install openjdk-8-jdk -y
+
+echo 'Installing zsh...'
+sudo apt install zsh -y
+sh -c "$(wget https://raw.github.com/robbyrussell/oh-my-zsh/master/tools/install.sh -O -)"
+chsh -s /bin/zsh
+source ~/.zshrc
