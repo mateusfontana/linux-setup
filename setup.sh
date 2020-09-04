@@ -9,6 +9,9 @@ sudo apt install xclip -y
 echo 'Installing git...' 
 sudo apt install git -y
 
+echo 'Installing vim...'
+sudo apt install vim -y
+
 echo "What name do you want to use in git user.name?"
 read git_config_user_name
 git config --global user.name "$git_config_user_name"
@@ -74,9 +77,6 @@ echo "Adding extentions"
 echo "zinit light zdharma/fast-syntax-highlighting" >> ~/.zshrc
 echo "zinit light zsh-users/zsh-autosuggestions" >> ~/.zshrc
 echo "zinit light zsh-users/zsh-completions" >> ~/.zshrc
-
-echo 'Installing vim...'
-sudo apt install vim -y
 
 echo 'Installing code...'
 curl https://packages.microsoft.com/keys/microsoft.asc | gpg --dearmor > microsoft.gpg
