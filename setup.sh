@@ -116,6 +116,7 @@ sudo apt-get update
 sudo apt-get install terminator -y
 
 echo 'Configuring terminator...' 
+touch ~/.config/terminator/config
 cat <<EOF >>  ~/.config/terminator/config
 [global_config]
   tab_position = hidden
